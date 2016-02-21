@@ -141,6 +141,12 @@ nginx:
             rewrite_to_https: '1'
             spdy: '1'
             locations:
+                nxvl_dyk1zfm4mdpl_2:
+                    location: '/'
+                    try_files:
+                        - $uri
+                        - $uri/
+                        - /index.php?$query_string
                 nxvl_dyk1zfm4mdpl:
                     location: '~ \.php$'
                     autoindex: 'off'
@@ -270,7 +276,7 @@ drush:
     install: '0'
     version: 6.3.0
 ruby:
-    install: '1'
+    install: '0'
     versions:
         rv_5ommqmno001z:
             default: '1'
@@ -281,7 +287,7 @@ ruby:
                 - activesupport
                 - vine
 python:
-    install: '1'
+    install: '0'
     packages: {  }
     versions: {  }
 nodejs:
@@ -356,8 +362,14 @@ postgresql:
             version: '9.4'
         server:
             postgres_password: '123'
-    databases: {  }
-    users: {  }
+    databases:
+        postsqlnd_ht6jy3jlw9gb:
+            dbname: phpcomm_db
+            owner: phpcomm
+    users:
+        postsqlnu_5hfigt9zfe01:
+            username: phpcomm
+            password: phpcomm
     grants: {  }
     adminer: '1'
 mongodb:
